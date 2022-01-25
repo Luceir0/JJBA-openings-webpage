@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            background-image: url(/a0d34b24431bac8089850d310caa26de.jpg);
+        }
+
+        .theMusicPlayer {
+            text-align: center;
+        }
+
+    </style>
+    <title>Ejercicio Audio</title>
+</head>
+<body>
+    <div class="theMusicPlayer">
+        <audio id="theSong" controls autoplay>
+            <source src="/Jojos Bizarre Adventure All OPs.mp3">
+        </audio>
+    
+        <div>
+            <button id="playBtn">Play</button>
+            <button id="pauseBtn">Pause</button>
+            <button id="reloadBtn">Reload</button>
+        </div>
+    </div>
+
+    <script>
+        let audio = document.getElementById('theSong');
+
+        const play = document.getElementById('playBtn');
+        const pause = document.getElementById('pauseBtn');
+        const reload = document.getElementById('reloadBtn');
+
+        play.addEventListener('click', playFunction);
+        pause.addEventListener('click', pauseFunction);
+        reload.addEventListener('click', reloadFunction);
+
+        function playFunction() {
+            audio.play();
+        }
+
+        function pauseFunction() {
+            audio.pause();
+        }
+
+        function reloadFunction() {
+            audio.load();
+        }
+
+    </script>
+</body>
+</html>
