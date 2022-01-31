@@ -6,11 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         * {
-            background-image: url(a0d34b24431bac8089850d310caa26de.jpg);
+            background-image: url(/a0d34b24431bac8089850d310caa26de.jpg);
         }
 
-        .theMusicPlayer {
+        .theMusicPlayer, .theVideoPlayer {
             text-align: center;
+        }
+
+        button {
+            font-weight: bold;
+            color: blueviolet;
+            margin: 10px;
+            padding: 12px;
         }
 
     </style>
@@ -18,38 +25,71 @@
 </head>
 <body>
     <div class="theMusicPlayer">
-        <audio id="theSong" controls autoplay>
-            <source src="Jojos Bizarre Adventure All OPs.mp3">
+        <audio id="theSong" controls>
+            <source src="/Jojos Bizarre Adventure All OPs.mp3">
         </audio>
     
         <div>
-            <button id="playBtn">Play</button>
-            <button id="pauseBtn">Pause</button>
-            <button id="reloadBtn">Reload</button>
+            <button id="playAudioBtn">Play Music</button>
+            <button id="pauseAudioBtn">Pause Music</button>
+            <button id="reloadAudioBtn">Reload Music</button>
+        </div>
+    </div>
+
+    <div class="theVideoPlayer">
+        <video id="theVideo" controls>
+            <source src="/JoJos Bizarre Adventure All Openings 1-9 HD.mp4">
+        </video>
+    
+        <div>
+            <button id="playVideoBtn">Play Video</button>
+            <button id="pauseVideoBtn">Pause Video</button>
+            <button id="reloadVideoBtn">Reload Video</button>
         </div>
     </div>
 
     <script>
         let audio = document.getElementById('theSong');
+        let video = document.getElementById('theVideo');
 
-        const play = document.getElementById('playBtn');
-        const pause = document.getElementById('pauseBtn');
-        const reload = document.getElementById('reloadBtn');
+        const playAudio = document.getElementById('playAudioBtn');
+        const pauseAudio = document.getElementById('pauseAudioBtn');
+        const reloadAudio = document.getElementById('reloadAudioBtn');
 
-        play.addEventListener('click', playFunction);
-        pause.addEventListener('click', pauseFunction);
-        reload.addEventListener('click', reloadFunction);
+        const playVideo = document.getElementById('playVideoBtn');
+        const pauseVideo = document.getElementById('pauseVideoBtn');
+        const reloadVideo = document.getElementById('reloadVideoBtn');
 
-        function playFunction() {
-            audio.play();
+        playAudio.addEventListener('click', playFunction);
+        pauseAudio.addEventListener('click', pauseFunction);
+        reloadAudio.addEventListener('click', reloadFunction);
+
+        playVideo.addEventListener('click', playFunction);
+        pauseVideo.addEventListener('click', pauseFunction);
+        reloadVideo.addEventListener('click', reloadFunction);
+
+        function playFunction(e) {
+            if (e.target.id === 'playAudioBtn') {
+                audio.play();
+            } else if (e.target.id === 'playVideoBtn') {
+                video.play();
+            }
         }
 
-        function pauseFunction() {
-            audio.pause();
+        function pauseFunction(e) {
+            if (e.target.id === 'pauseAudioBtn') {
+                audio.pause();
+            } else if (e.target.id === 'pauseVideoBtn') {
+                video.pause();
+            }
         }
 
-        function reloadFunction() {
-            audio.load();
+        function reloadFunction(e) {
+            if (e.target.id === 'reloadAudioBtn') {
+                audio.load();
+            } else if (e.target.id === 'reloadVideoBtn') {
+                video.load();
+            }
         }
 
     </script>
